@@ -1,4 +1,4 @@
-module TestJwt
+module RestJwt
 
 go 1.18
 

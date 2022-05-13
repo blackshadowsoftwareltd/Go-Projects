@@ -1,21 +1,17 @@
 package main
 
 import (
+	jwtToken "RestJwt/token"
 	"fmt"
-	"time"
-
-	jwt "github.com/dgrijalva/jwt-go"
 )
 
-func main() {}
+func main() {
+	fmt.Println("Started")
 
-func GenerateJWT() (string error) {
-	token := jwt.New(jwt.SigningMethodES256)
-	fmt.Println("token:", token)
-	claims := token.Claims.(jwt.MapClaims)
-
-	claims["authorized"] = true
-	claims["user"] = "Remon"
-	claims["exp"] = time.Now().Add(time.Minute * 30).Unix()
-
+	_token, _err := jwtToken.GenerateJWT()
+	if _err != nil {
+		fmt.Println("Error:", _err)
+	} else {
+		fmt.Println("Created Token:", _token)
+	}
 }
