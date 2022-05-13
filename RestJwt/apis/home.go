@@ -12,7 +12,8 @@ func HomePage(w http.ResponseWriter, r *http.Request) {
 	if _err != nil {
 		fmt.Println("Error:", _err)
 	} else {
-		fmt.Println("Token :", _token)
+		fmt.Fprintln(w, _token)                 //? Fprintln is used to print to the web page
+		fmt.Println("Token created : ", _token) //? Println is used to print to the console
 	}
 
 }
