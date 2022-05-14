@@ -2,13 +2,15 @@ package main
 
 import (
 	// "fmt"
+	"fmt"
 	"log"
 	"net/http"
+
 	// "time"
 
 	// jwt "github.com/dgrijalva/jwt-go"
-	handler "AuthenticationJWT/handler"
 	data "AuthenticationJWT/data"
+	handler "AuthenticationJWT/handler"
 )
 
 func main() {
@@ -18,6 +20,7 @@ func main() {
 
 
 func Handleer() {
+	fmt.Println("Started")
 	http.HandleFunc("/login", handler.Login)
 	http.HandleFunc("/home", handler.Home)
 	http.HandleFunc("/refresh", handler.Refresh)

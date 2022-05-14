@@ -9,20 +9,20 @@ var Users []model.Credentials
 
 func InitialiaeData() {
 	user1 := model.Credentials{
-		UserName: "user 1",
-		Password: "pasword 1",
+		UserName: "user1",
+		Password: "password1",
 	}
 	user2 := model.Credentials{
-		UserName: "user 2",
-		Password: "password 2",
+		UserName: "user2",
+		Password: "password2",
 	}
 	user3 := model.Credentials{
-		UserName: "user 3",
-		Password: "password 3",
+		UserName: "user3",
+		Password: "password3",
 	}
 	user4 := model.Credentials{
-		UserName: "user 4",
-		Password: "password 4",
+		UserName: "user4",
+		Password: "password4",
 	}
 
 	Users = append(Users, user1)
