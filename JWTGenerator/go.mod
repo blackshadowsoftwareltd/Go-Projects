@@ -1,4 +1,4 @@
-module RestJwt
+module JWTGenerator
 
 go 1.18
 

@@ -1,7 +1,7 @@
 package apis
 
 import (
-	jwtToken "RestJwt/token"
+	jwtToken "JWTGenerator/token"
 	"fmt"
 	"net/http"
 	// "time"

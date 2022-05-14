@@ -2,7 +2,7 @@ package main
 
 import (
 	// jwtToken "RestJwt/token"
-	handler "RestJwt/apis"
+	handler "JWTGenerator/apis"
 	"fmt"
 )
 
