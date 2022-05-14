@@ -1,12 +1,27 @@
 package main
 
 import (
-	"fmt"
-	jwt "github.com/dgrijalva/jwt-go"
+	// "fmt"
+	"log"
 	"net/http"
-	"time"
+	// "time"
+
+	// jwt "github.com/dgrijalva/jwt-go"
+	handler "AuthenticationJWT/handler"
+	data "AuthenticationJWT/data"
 )
 
- func main(){
-	 
- }
+func main() {
+	Handleer()
+}
+
+
+
+func Handleer() {
+	http.HandleFunc("/login", handler.Login)
+	http.HandleFunc("/home", handler.Home)
+	http.HandleFunc("/refresh", handler.Refresh)
+	log.Fatal(http.ListenAndServe(":8080", nil))
+
+	data.InitialiaeData()
+}
