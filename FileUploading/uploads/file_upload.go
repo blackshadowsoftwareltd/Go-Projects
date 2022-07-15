@@ -1,6 +1,7 @@
 package uploads
 
 import (
+	message "FileUploading/messages"
 	readWrite "FileUploading/read_write"
 	"fmt"
 
@@ -15,6 +16,7 @@ func FileUpload(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		fmt.Println("Error retrieving the file")
 		fmt.Println(err)
+		message.ErrorMessage(w, r, "Error retrieving the file. Error : "+err.Error())
 		return
 	}
 	defer file.Close()
@@ -22,30 +24,11 @@ func FileUpload(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("Size:", handler.Size)
 	fmt.Println("MIME Header:", handler.Header)
 
-	readWrite.WriteFile(file)
+	msg, success := readWrite.WriteFile(file)
+	if !success {
+		message.ErrorMessage(w, r, msg)
+	} else {
+		message.SendMessage(w, r, msg)
+	}
 
-	// fmt.Print("File Upload Endpoint Hit\n\n")
-	// // Get the file from the request
-	// file, header, err := r.FormFile("file")
-	// if err != nil {
-	// 	w.WriteHeader(http.StatusBadRequest)
-	// 	return
-	// }
-	// defer file.Close()
-
-	// // Create a new file
-	// out, err := os.Create("uploads/" + header.Filename)
-	// if err != nil {
-	// 	w.WriteHeader(http.StatusInternalServerError)
-	// 	return
-	// }
-	// defer out.Close()
-
-	// // Write the file to the new file
-	// _, err = io.Copy(out, file)
-	// if err != nil {
-	// 	w.WriteHeader(http.StatusInternalServerError)
-	// 	return
-	// }
-	// w.WriteHeader(http.StatusOK)
 }
