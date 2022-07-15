@@ -1,7 +1,7 @@
 package main
 
-import "fmt"
+import routes "FileUploading/routes"
 
 func main() {
-	fmt.Print("Started")
+	routes.HandleRoutes()
 }
