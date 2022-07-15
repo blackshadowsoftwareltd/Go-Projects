@@ -24,11 +24,11 @@ func FileUpload(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("Size:", handler.Size)
 	fmt.Println("MIME Header:", handler.Header)
 
-	msg, success := readWrite.WriteFile(file)
+	///? write file
+	msg, success := readWrite.WriteFile(file, handler.Filename)
 	if !success {
 		message.ErrorMessage(w, r, msg)
 	} else {
 		message.SendMessage(w, r, msg)
 	}
-
 }
