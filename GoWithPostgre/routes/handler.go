@@ -14,7 +14,8 @@ func HandleRoutes() {
 	router := mux.NewRouter()
 	///? routes
 	router.HandleFunc("/", home).Methods("GET")
-	router.HandleFunc("/post", methods.PostMethod).Methods("POST")
+	// router.HandleFunc("/post", methods.PostMethod).Methods("POST")
+	methods.PostMethod()
 
 	///?
 	port := os.Getenv("PORT")
