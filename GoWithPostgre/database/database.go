@@ -8,15 +8,17 @@ import (
 
 const (
 	host     = "localhost"
-	port     = "8080"
+	port     = "5432"
 	user     = "postgres"
-	password = "36......"
-	dbname   = "postgres"
+	password = ""
+	dbname   = "todos"
 )
 
 var DB *sql.DB
 
 var connStr = fmt.Sprintf("host=%s port=%s user=%s password=%s dbname=%s sslmode=disable", host, port, user, password, dbname)
+
+// var connStr = fmt.Sprintf("postgres://postgres:36166171@localhost/todos?sslmode=disable")
 
 func CreateDatabase() {
 	db, err := sql.Open("postgres", connStr)
