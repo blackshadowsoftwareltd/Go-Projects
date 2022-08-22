@@ -19,14 +19,15 @@ func PostMethod() {
 	} else {
 		fmt.Println("Database is connected")
 	}
-	insertStatement := `INSERT INTO today (id,title, description) VALUES ($1, $2, $3)`
-	_, err := databases.DB.Exec(insertStatement, 1, "Hello", "World")
+	insertStatement := `insert into test_table values(12,'Name 9');`
+	_, err := databases.DB.Exec(insertStatement)
 	if err != nil {
 		fmt.Println("Error", err)
 		// log.Fatal("Error inserting data", err)
 		// messages.ErrorMessage(w, r, "Error inserting data")
 		return
 	} else {
+		fmt.Println("success")
 		// messages.Ok(w)
 	}
 	// var res string

@@ -20,9 +20,9 @@ func HandleRoutes() {
 	///?
 	port := os.Getenv("PORT")
 	if port == "" {
-		port = "5432"
+		port = "5431"
 	}
-	port = "5432"
+	port = "5431"
 	log.Fatal(http.ListenAndServe(":"+port, router))
 }
 func home(w http.ResponseWriter, r *http.Request) {
