@@ -19,7 +19,7 @@ func PostMethod() {
 	} else {
 		fmt.Println("Database is connected")
 	}
-	insertStatement := `insert into test_table values(12,'Name 9');`
+	insertStatement := `insert into users values(0,'Name 9','me@io.io');`
 	_, err := databases.DB.Exec(insertStatement)
 	if err != nil {
 		fmt.Println("Error", err)
