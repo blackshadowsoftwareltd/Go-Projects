@@ -6,10 +6,7 @@ import (
 	"GoWithPostgre/messages"
 	models "GoWithPostgre/models"
 	"encoding/json"
-
-	// messages "GoWithPostgre/messages"
 	"fmt"
-
 	"net/http"
 
 	_ "github.com/lib/pq"
@@ -34,10 +31,17 @@ func CreateUser(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	///? read data from database
-	var user models.UserModel
-	user = dbFunc.GetLastUsersInfoFromDB()
+	user := dbFunc.GetLastUsersInfoFromDB()
 
 	///? send data to client
-	json.NewEncoder(w).Encode(user)
+	responseBody := models.UserModelResponse{
+		Id:          user.Id,
+		Name:        user.Name,
+		Email:       user.Email,
+		Address:     user.Address,
+		Designation: user.Designation,
+		Age:         user.Age,
+	}
+	json.NewEncoder(w).Encode(responseBody)
 
 }
