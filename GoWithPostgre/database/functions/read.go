@@ -18,7 +18,8 @@ func GetAllUsersFromDB() []models.UserModel {
 	var list []models.UserModel
 	var temp models.UserModel
 	for rows.Next() {
-		err = rows.Scan(&temp.ID, &temp.Name, &temp.Email, &temp.Password, &temp.Address, &temp.Designation, &temp.Age)
+		//? password must be ignored. thats why, not use ampersand (&) before password field.
+		err = rows.Scan(&temp.ID, &temp.Name, &temp.Email, temp.Password, &temp.Address, &temp.Designation, &temp.Age)
 		if err != nil {
 			fmt.Println(err)
 		}
@@ -36,15 +37,16 @@ func GetSingleUserInfoFromDB(id int64) models.UserModel {
 		log.Fatalln(err)
 	}
 	defer rows.Close()
-	var res models.UserModel
+	var temp models.UserModel
 	for rows.Next() {
-		err = rows.Scan(&res.ID, &res.Name, &res.Email, &res.Password, &res.Address, &res.Designation, &res.Age)
+		//? password must be ignored. thats why, not use ampersand (&) before password field.
+		err = rows.Scan(&temp.ID, &temp.Name, &temp.Email, temp.Password, &temp.Address, &temp.Designation, &temp.Age)
 		if err != nil {
 			fmt.Println(err)
 		}
-		rows.Scan(&res)
+		rows.Scan(&temp)
 	}
-	return res
+	return temp
 }
 
 ///? Get All Users info from database
@@ -57,7 +59,8 @@ func GetLastUsersInfoFromDB() models.UserModel {
 	defer rows.Close()
 	var temp models.UserModel
 	for rows.Next() {
-		err = rows.Scan(&temp.ID, &temp.Name, &temp.Email, &temp.Password, &temp.Address, &temp.Designation, &temp.Age)
+		//? password must be ignored. thats why, not use ampersand (&) before password field.
+		err = rows.Scan(&temp.ID, &temp.Name, &temp.Email, temp.Password, &temp.Address, &temp.Designation, &temp.Age)
 		if err != nil {
 			fmt.Println(err)
 		}
