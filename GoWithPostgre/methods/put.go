@@ -16,8 +16,8 @@ func UpdateUser(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("Update Method")
 	var body models.UserModel
 	_ = json.NewDecoder(r.Body).Decode(&body)
-	if body.Id == 0 {
-		messages.ErrorMessage(w, r, "Id is required")
+	if body.Id == 0 || dbFunc.UserIsExistInDB(body.Id, body.Email) == 0 { ///? dbFunc.UserIsExistInDB(body.Id, body.Email) this method will return 0 if the user is not exist
+		messages.ErrorMessage(w, r, "Id is Envalid")
 		return
 	}
 
