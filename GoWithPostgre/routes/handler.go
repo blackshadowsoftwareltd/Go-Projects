@@ -15,7 +15,7 @@ func HandleRoutes() {
 	///? routes
 	router.HandleFunc("/", home).Methods("GET")
 	router.HandleFunc("/signup", methods.CreateUser).Methods("POST")
-	router.HandleFunc("/profile_update", methods.UpdateUser).Methods("POST")
+	router.HandleFunc("/profile_update", methods.UpdateUser).Methods("PUT")
 
 	///?
 	port := os.Getenv("PORT")
