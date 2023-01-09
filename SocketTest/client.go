@@ -81,3 +81,5 @@ func main() {
 		}
 	}
 }
+
+///* to post man >> ws://127.0.0.1:8080/echo
