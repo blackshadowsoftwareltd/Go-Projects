@@ -18,7 +18,7 @@ import (
 	"github.com/gorilla/websocket"
 )
 
-var addr = flag.String("addr", "localhost:11292", "http service address")
+var addr = flag.String("addr", "localhost:3696", "http service address")
 
 func main() {
 	flag.Parse()
@@ -80,10 +80,18 @@ func main() {
 			return
 		}
 	}
+
 }
 
-///* to post man >> ws://127.0.0.1:11292/echo
+///! first run server.go file
+///! then run client.go file
+
+///* to post man >> ws://127.0.0.1:3696/echo
 
 ///*
 ///? to check the port is open or not
 // netstat -o
+
+///? to stop any port. like 3696 is a port number
+///* netstat -ano | findstr :3696
+///* taskkill /PID 3696 /F
