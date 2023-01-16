@@ -18,7 +18,7 @@ import (
 	"github.com/gorilla/websocket"
 )
 
-var addr = flag.String("addr", "localhost:8304", "http service address")
+var addr = flag.String("addr", "localhost:11292", "http service address")
 
 func main() {
 	flag.Parse()
@@ -82,7 +82,7 @@ func main() {
 	}
 }
 
-///* to post man >> ws://127.0.0.1:8304/echo
+///* to post man >> ws://127.0.0.1:11292/echo
 
 ///*
 ///? to check the port is open or not
